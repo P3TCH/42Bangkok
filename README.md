@@ -1,3 +1,3 @@
 # HELLO WORLD!! 42BANGKOK
 
-![42 Logo](https://www.42bangkok.com/wp-content/uploads/2020/02/42bangkok-logo-right.svg)
+![42 Logo](https://cdn.discordapp.com/attachments/471668354260926464/976581333151277116/42bangkok-logo-right.png)
