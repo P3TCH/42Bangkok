@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snamesst <snamesst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/07 16:00:20 by snamesst          #+#    #+#             */
-/*   Updated: 2022/06/07 16:00:20 by snamesst         ###   ########.fr       */
+/*   Created: 2022/07/18 19:35:01 by snamesst          #+#    #+#             */
+/*   Updated: 2022/07/18 19:35:01 by snamesst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*un_b;
-	size_t			i;
+	char	*ss;
+	size_t	i;
+	size_t	j;
 
-	i = 0;
-	un_b = b;
-	while (i < len)
+	j = 0;
+	i = (size_t)start;
+	if (s == 0 || start > ft_strlen(s))
 	{
-		un_b[i] = c;
-		i++;
+		ss = malloc(1);
+		ss[0] = 0;
+		return (ss);
 	}
-	b = un_b;
-	return (b);
+	if (ft_strlen(s) - start < len)
+		ss = malloc(ft_strlen(s) - start + 1);
+	else
+		ss = malloc(len + 1);
+	while (i < ft_strlen(s) && j < len)
+	{
+		ss[j++] = s[i++];
+	}
+	ss[j] = 0;
+	return (ss);
 }
