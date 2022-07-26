@@ -21,7 +21,10 @@ SRC = 	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 		ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
 		ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
+BONUS =	ft_lstnew.c ft_lstadd_front.c
+
 OBJ = $(SRC:.c=.o)
+B_OBJ = $(BONUS:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 HEADER = libft.h
@@ -31,12 +34,16 @@ all: $(NAME)
 $(NAME): $(OBJ) $(HEADER)
 	ar rcs $(NAME) $(OBJ)
 
+bonus: all
+	$(CC) $(CFLAGS) -c $(BONUS)
+	ar rcs $(NAME) $(B_OBJ)
+
 clean:
 	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean all
+re: fclean all bonus
 
-.PHONY: clean fclean re all
+.PHONY: clean fclean re all bonus
