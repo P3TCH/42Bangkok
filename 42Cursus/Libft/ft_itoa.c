@@ -6,7 +6,7 @@
 /*   By: snamesst <snamesst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 18:41:45 by snamesst          #+#    #+#             */
-/*   Updated: 2022/07/26 18:41:45 by snamesst         ###   ########.fr       */
+/*   Updated: 2022/08/02 17:12:21 by snamesst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char	*lob_case(int len, int n)
 	char	*itoa;
 
 	itoa = malloc(len + 2);
+	if (itoa == 0)
+		return (0);
 	itoa[0] = '-';
 	itoa[len + 1] = 0;
 	while (len >= 1)
@@ -50,6 +52,8 @@ char	*plus_case(int len, int n)
 	char	*itoa;
 
 	itoa = malloc(len + 1);
+	if (itoa == 0)
+		return (0);
 	itoa[len] = 0;
 	len--;
 	while (len >= 0)

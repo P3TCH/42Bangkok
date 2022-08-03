@@ -6,7 +6,7 @@
 /*   By: snamesst <snamesst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:35:01 by snamesst          #+#    #+#             */
-/*   Updated: 2022/07/18 19:35:01 by snamesst         ###   ########.fr       */
+/*   Updated: 2022/08/02 17:05:31 by snamesst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		ss = malloc(ft_strlen(s) - start + 1);
 	else
 		ss = malloc(len + 1);
+	if (ss == 0)
+		return (0);
 	while (i < ft_strlen(s) && j < len)
 	{
 		ss[j++] = s[i++];

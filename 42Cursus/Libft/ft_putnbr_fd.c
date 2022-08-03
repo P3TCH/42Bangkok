@@ -14,16 +14,13 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long	nn;
-
-	nn = n;
 	if (n < 0)
 	{
 		write(fd, "-", 1);
-		nn = nn * -1;
+		n = n * -1;
 	}
-	if (nn > 9)
-		ft_putnbr_fd(nn / 10, fd);
-	nn = (nn % 10) + '0';
-	write(fd, &nn, 1);
+	if (n > 9)
+		ft_putnbr_fd(n / 10, fd);
+	n = (n % 10) + '0';
+	write(fd, &n, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: snamesst <snamesst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 19:01:26 by snamesst          #+#    #+#             */
-/*   Updated: 2022/07/25 19:01:26 by snamesst         ###   ########.fr       */
+/*   Updated: 2022/08/02 17:09:36 by snamesst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	ss = (char *)s;
 	splited = malloc(sizeof(char *) * (ft_allword(ss, c) + 1));
+	if (splited == 0)
+		return (0);
 	while (ss[i] != 0)
 	{
 		while (c == ss[i])

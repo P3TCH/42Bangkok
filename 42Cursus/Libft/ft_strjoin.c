@@ -6,7 +6,7 @@
 /*   By: snamesst <snamesst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 21:43:38 by snamesst          #+#    #+#             */
-/*   Updated: 2022/07/18 21:43:38 by snamesst         ###   ########.fr       */
+/*   Updated: 2022/08/02 17:07:08 by snamesst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (s1 == 0 || s2 == 0)
 		return (0);
 	s3 = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (s3 == 0)
+		return (0);
 	while (s1[i] != 0)
 	{
 		s3[i] = s1[i];

@@ -6,7 +6,7 @@
 /*   By: snamesst <snamesst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 00:57:34 by snamesst          #+#    #+#             */
-/*   Updated: 2022/07/27 00:40:47 by snamesst         ###   ########.fr       */
+/*   Updated: 2022/08/03 16:11:48 by snamesst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	j;
 
 	i = 0;
-	if (needle == 0 || needle == haystack || needle[0] == 0)
+	if (needle == haystack || needle[0] == 0)
 		return ((char *)haystack);
 	while (haystack[i] != 0 && i < len)
 	{
