@@ -1,0 +1,127 @@
+https://baigal.medium.com/born2beroot-e6e26dfb50ac
+
+- Wordpress
+https://www.howtoforge.com/tutorial/arch-linux-wordpress-install/
+wordpress (name)
+wpuser@localhost (user)
+wppassword (pass)
+
+- cron
+-u = user
+-e = edit
+sudo crontab -u root -e
+/usr/local/bin/monitoring.sh
+
+- HOSTNAME
+hostnamectl set-hostname (your-new-hostname)
+
+- Add User
+adduser username
+passwd username
+usermod -a -G (group) username
+
+https://www.liquidweb.com/kb/how-to-remove-delete-a-user-on-centos-7/
+- Del User
+compgen -u (show user)
+userdel (user)
+userdel -r (user)
+
+- Add Group
+sudo groupadd NAME-OF-THE-NEW-GROUP
+gpassed -a (name) (group)
+usermod -a -G (group) (name)
+usermod -a -G wheel username
+usermod -a -G sudo username
+groups (name)
+cat /etc/group
+getent -g
+
+- SUDO
+getent group sudo
+sudo visudo
+
+- set sudo tries 3 times
+sudo nano /etc/sudoers
+Defaults     passwd_tries=3
+Defaults     badpass_message=""
+
+
+- PASSWORD POLICY
+checkinfo password
+chage -l (name)
+
+https://www.server-world.info/en/note?os=CentOS_8&p=pam&f=1
+vi /etc/login.defs 
+[PASS_MAX_DAY, PASS_MIN_DAY]
+
+vi /etc/security/pwquality.conf
+lcredit=-1 ucredit=-1 dcredit=-1 maxrepeat=3 usercheck=1 difok=7 enforce_for_root
+
+
+- SSH
+service name sshd
+/etc/init.d/sshd
+systemctl status sshd
+/etc/ssh/sshd_config
+
+- OPEN PORT FOR SSH
+https://ostechnix.com/linux-troubleshooting-semanage-command-not-found-in-centos-7rhel-7/
+dnf install policycoreutils-python-utils
+
+https://docs.rackspace.com/support/how-to/change-the-ssh-port-in-centos-and-redhat/ ***
+
+-- SE LINUX
+https://man7.org/linux/man-pages/man8/semanage-port.8.html
+-a = add
+-t = type (name process)
+-p = protocall
+-m = modify (set port at default)
+semanage port -a -t ssh_port_t -p tcp 4242
+semanage port -m -t ssh_port_t -p tcp 4242
+systemctl restart sshd
+
+-- verify bind to the new port
+ss -tlpn | grep ssh
+
+-- update firewall
+sudo firewall-cmd --add-port=4242/tcp --permanent
+sudo firewall-cmd --remove-service=ssh --permanent
+sudo firewall-cmd --reload
+
+--- remove --
+sudo firewall-cmd --list-ports 
+sudo firewall-cmd --remove-port=4242/tcp --permanent
+
+-- UFW
+- add repository
+sudo dnf install epel-release -y
+
+dnf install ufw
+ufw status verbose
+ufw allow (NEWPORT)
+ufw delete allow (PORT)
+sudo ufw status numbered
+sudo ufw delete (that number, for example 5 or 6)
+
+- monitoring
+https://saixiii.com/top-linux-command/
+CPU = top -bn1
+b = bash mod
+n = ซ้ำโชว์แค่ 1 พอ
+
+
+
+- OTHER
+show ip: ip addr show
+
+https://www.tecmint.com/fix-semanage-command-not-found-in-centos-rhel/
+https://shouts.dev/articles/install-and-setup-ufw-firewall-on-centos-8-rhel-8
+https://docs.rackspace.com/support/how-to/change-the-ssh-port-in-centos-and-redhat/
+
+
+
+
+
+
+DOC
+https://codeberg.org/UncleReaton/Born2BeRoot-CheatSheet/src/branch/main/README.md
